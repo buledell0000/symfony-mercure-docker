@@ -1,0 +1,26 @@
+version: '3.3'
+
+services: 
+    web:
+        image: thecodingmachine/php:7.4-v3-apache-node12
+        environment: 
+            APACHE_DOCUMENT_ROOT: "public/"
+            PHP_EXTENSION_INTL: 1
+            PHP_EXTENSION_EXIF: 1
+            PHP_EXTENSION_GD: 1
+            PHP_EXTENSION_WEAKREF: 1
+            PHP_EXTENSION_XDEBUG: 1
+            PHP_INI_XDEBUG__REMOTE_AUTOSTART: 1
+            PHP_INI_XDEBUG__REMOTE_CONNECT_BACK: 1
+            # CORS_ALLOW_ORIGIN: "*"
+        ports: 
+            - 80:80
+        volumes: 
+            - ./:/var/www/html
+    mercure:
+        image: dunglas/mercure
+        ports:
+            - "3000:80"
+        volumes:
+            - ./CaddyFile:/etc/caddy/Caddyfile
+            # - ./mercure.yaml:/etc/mercure/mercure.yaml

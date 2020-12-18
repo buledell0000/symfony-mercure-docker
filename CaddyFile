@@ -1,0 +1,16 @@
+# The address of your server
+:80
+
+route {
+    mercure {
+        #anonymous true
+        demo true
+        # debug true
+        publisher_jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtZXJjdXJlIjp7InB1Ymxpc2giOltdfX0.Oo0yg7y4yMa1vr_bziltxuTCqb8JVHKxp-f_FwwOim0
+        subscriber_jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtZXJjdXJlIjp7InB1Ymxpc2giOltdfX0.Oo0yg7y4yMa1vr_bziltxuTCqb8JVHKxp-f_FwwOim0
+        cors_origins http://localhost
+        publish_origins *
+    }
+
+    respond "Not asdf Found" 404
+}
